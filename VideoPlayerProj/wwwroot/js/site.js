@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputFiles.value = "";
             showCatalogue();
         } catch (err) {
-            uploadStatus.textContent = "Connection error occurred. Please try again.";
+            uploadStatus.textContent = "An error occurred. Please try again.";
         } finally {
             uploadBtn.disabled = false;
         }
