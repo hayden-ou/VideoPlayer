@@ -1,13 +1,48 @@
 ﻿@{
-    ViewData["Title"] = "Video Player";
+    ViewData["Title"] = "Video Manager";
 }
 
-<div class="vp-container">
-    
+<div class="container py-4">
+    <header class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+        <h1 class="h4 mb-0">Video Manager</h1>
+        <nav class="tabs" role="tablist">
+            <button id="tab-upload" class="tab active" role="tab" aria-selected="true">Upload</button>
+            <button id="tab-catalogue" class="tab" role="tab" aria-selected="false">Catalogue</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="upload-view" class="view">
+            <form id="upload-form">
+                <label for="videoFiles">Select MP4 file</label>
+                <input id="videoFiles" name="videoFile" type="file" accept=".mp4" />
+                <div class="actions">
+                    <button id="uploadBtn" type="button">Upload</button>
+                    <span id="uploadStatus" class="status" aria-live="polite"></span>
+                </div>
+            </form>
+        </section>
+
+        <section id="catalogue-view" class="view hidden">
+            <div class="mb-4">
+                <video id="videoPlayer" controls preload="metadata" playsinline></video>
+            </div>
+
+            <div class="table-responsive">
+                <table id="catalogueTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Filename</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
 </div>
 
-@section Scripts {
-    <script>
-        
-    </script>
-}
+<script src="~/js/site.js"></script>
